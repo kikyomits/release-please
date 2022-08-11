@@ -20,9 +20,10 @@ jobs:
         with:
           release-type: go
 
-      - run: echo ${{ steps.release-please.outputs.tag_name }}
-      - run: echo ${{ steps.release-please.outputs.release_created }}
-      - run: echo ${{ steps.release-please.outputs.sha }}
+      - run: |
+          echo ${{ steps.release-please.outputs.tag_name }}
+          echo ${{ steps.release-please.outputs.release_created }}
+          echo ${{ steps.release-please.outputs.sha }}
 
 
 
