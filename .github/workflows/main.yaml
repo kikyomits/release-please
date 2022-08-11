@@ -3,6 +3,13 @@ name: Release
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      test:
+        type: string
+        default: "yes"
+        description: "test input"
+        required: false
 
 jobs:
   release:
