@@ -24,5 +24,3 @@ jobs:
           echo ${{ steps.release-please.outputs.tag_name }}
           echo ${{ steps.release-please.outputs.release_created }}
           echo ${{ steps.release-please.outputs.sha }}
-
-
