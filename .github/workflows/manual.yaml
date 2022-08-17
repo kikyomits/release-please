@@ -28,10 +28,13 @@ jobs:
     outputs:
       image-tag: ${{ env.IMAGE_TAG }}
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
       - name: Get Latest Version
         if: ${{ inputs.image-tag == 'latest' }}
         run: |
-          version="v$(gh release list --exclude-drafts --limit 1 | awk '{print $1}')"
+          version="$(gh release list --exclude-drafts --limit 1 | awk '{print $1}')"
           echo "IMAGE_TAG=${version}" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
