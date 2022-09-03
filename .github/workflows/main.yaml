@@ -1,8 +1,8 @@
 name: Release
 
 on:
-#  push:
-#    branches: [ main ]
+  push:
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       test:
@@ -19,8 +19,9 @@ jobs:
         id: "release-please"
         with:
           release-type: go
+          skip-github-release: true
 
       - run: |
-          echo ${{ steps.release-please.outputs.tag_name }}
-          echo ${{ steps.release-please.outputs.release_created }}
-          echo ${{ steps.release-please.outputs.sha }}
+          echo "tag name: ${{ steps.release-please.outputs.tag_name }}"
+          echo "release created: ${{ steps.release-please.outputs.release_created }}"
+          echo "sha: ${{ steps.release-please.outputs.sha }}"
