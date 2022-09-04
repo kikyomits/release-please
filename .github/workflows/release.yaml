@@ -1,9 +1,14 @@
 name: Release to Production
 
 on:
-  release:
-    types: [ published ]
+  pull_request:
+    types:
+      - opened
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - ci
 
 permissions:
   id-token: write
@@ -19,4 +24,6 @@ jobs:
         run: echo "${{ github.ref }}"
       - name: ref_name
         run: echo "${{ github.ref_name }}"
+      - name: sha
+        run: echo "${{ github.sha }}"
 

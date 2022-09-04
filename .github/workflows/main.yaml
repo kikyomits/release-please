@@ -20,7 +20,17 @@ jobs:
         with:
           release-type: go
 
-      - run: |
+      - name: "released"
+        if: ${{ steps.release-please.outputs.release_created }}"
+        run: |
+        
+          echo "tag name: ${{ steps.release-please.outputs.tag_name }}"
+          echo "release created: ${{ steps.release-please.outputs.release_created }}"
+          echo "sha: ${{ steps.release-please.outputs.sha }}"
+
+      - name: Not Released
+        if: ${{ !steps.release-please.outputs.release_created }}"
+        run: |
           echo "tag name: ${{ steps.release-please.outputs.tag_name }}"
           echo "release created: ${{ steps.release-please.outputs.release_created }}"
           echo "sha: ${{ steps.release-please.outputs.sha }}"
