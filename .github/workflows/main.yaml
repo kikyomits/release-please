@@ -16,12 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
-        id: "release-please"
+        id: release
         with:
           release-type: go
 
       - name: "released"
-        if: ${{ steps.release-please.outputs.release_created }}"
+        if: ${{ steps.release.outputs.release_created }}
         run: |
         
           echo "tag name: ${{ steps.release-please.outputs.tag_name }}"
@@ -29,7 +29,7 @@ jobs:
           echo "sha: ${{ steps.release-please.outputs.sha }}"
 
       - name: Not Released
-        if: ${{ !steps.release-please.outputs.release_created }}"
+        if: ${{ !steps.release.outputs.release_created }}
         run: |
           echo "tag name: ${{ steps.release-please.outputs.tag_name }}"
           echo "release created: ${{ steps.release-please.outputs.release_created }}"
