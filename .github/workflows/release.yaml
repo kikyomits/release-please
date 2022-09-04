@@ -1,14 +1,6 @@
 name: Release to Production
 
 on:
-  pull_request:
-    types:
-      - opened
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-      - ci
 
 permissions:
   id-token: write
