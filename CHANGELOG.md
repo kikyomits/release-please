@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/kikyomits/release-please/compare/v1.2.0...v1.2.1) (2022-09-04)
+
+
+### Bug Fixes
+
+* direct release ([176281a](https://github.com/kikyomits/release-please/commit/176281a05c9b598636d2343a4cb44b2e635576c6))
+* release trigger ([0af2ae0](https://github.com/kikyomits/release-please/commit/0af2ae0b53eef9552d58b53841bb8f50f2bc25d4))
+
 ## [1.2.0](https://github.com/kikyomits/release-please/compare/v1.1.0...v1.2.0) (2022-08-16)
 
 
