@@ -19,7 +19,6 @@ jobs:
         id: "release-please"
         with:
           release-type: go
-          skip-github-release: true
 
       - run: |
           echo "tag name: ${{ steps.release-please.outputs.tag_name }}"
