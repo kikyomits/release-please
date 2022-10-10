@@ -31,6 +31,4 @@ jobs:
       - name: Not Released
         if: ${{ !steps.release.outputs.release_created }}
         run: |
-          echo "tag name: ${{ steps.release-please.outputs.tag_name }}"
-          echo "release created: ${{ steps.release-please.outputs.release_created }}"
-          echo "sha: ${{ steps.release-please.outputs.sha }}"
+          echo "sha: ${{ github.sha }}"
