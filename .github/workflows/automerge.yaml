@@ -16,14 +16,15 @@ on:
   check_suite:
     types:
       - completed
+
   status: {}
 jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - id: token
-        name: token
-        uses: kikyomits/cicd-token-generator@v1
+      - id: get-token
+        name: get token
+        uses: tibdex/github-app-token@v1
         with:
           app_id: ${{ secrets.CI_TOKEN_GENERATOR_APP_ID }}
           private_key: ${{ secrets.CI_TOKEN_GENERATOR_PRIVATE_KEY }}
@@ -32,4 +33,4 @@ jobs:
         name: automerge
         uses: "pascalgn/automerge-action@v0.15.3"
         env:
-          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
