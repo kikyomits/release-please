@@ -1,0 +1,57 @@
+name: Enhancement Tracking Issue
+description: Provide supporting details for a feature in development
+labels: kind/feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Thank you for opening a feature request.
+
+  - type: checkboxes
+    id: titi-area
+    attributes:
+      label: Issue Area
+      description: Area where the issue impacted. This is required to display issue in correct tab in GitHub Project.
+      options:
+        - area/titi-flutter
+        - area/titi-api
+        - area/titi-api-admin
+        - area/platform
+        - area/na
+    validations:
+      required: true
+
+  - type: textarea
+    id: titi-feature
+    attributes:
+      label: What would you like to be added?
+      description: |
+        Describe a feature and its use case
+    validations:
+      required: true
+
+  - type: textarea
+    id: titi-rationale
+    attributes:
+      label: Why is this needed?
+    validations:
+      required: true
+
+  - type: textarea
+    id: titi-references
+    attributes:
+      label: References
+      description: |
+        Are there any other GitHub issues, whether open or closed, that are related to the problem you've described above or to the suggested solution? If so, please create a list below that mentions each of them. For example:
+        ```
+          - #6017
+        ```
+      placeholder:
+      value:
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        **Note:** If the submit button is disabled and you have filled out all required fields, please check that you did not forget a **Title** for the issue.

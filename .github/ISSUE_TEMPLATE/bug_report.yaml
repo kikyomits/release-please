@@ -1,0 +1,89 @@
+name: Bug Report
+description: Let us know about an unexpected error, a crash, or an incorrect behavior.
+labels: ["kind/bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Thank you for opening an issue.
+
+        To fix problems, we need clear reproduction cases - we need to be able to see it happen locally. A reproduction case is ideally something a TiTi engineers can git-clone or copy-paste and run immediately, without inventing any details or context.
+
+        * A short example can be directly copy-pasteable; longer examples should be in separate git repositories, especially if multiple files are needed
+        * Please include all needed context. For example, if you figured out that an expression can cause a crash, put the expression in a variable definition or a resource
+        * Set defaults on (or omit) any variables. The person reproducing it should not need to invent variable settings
+        * If multiple steps are required, such as running application twice, consider scripting it in a simple shell script. Providing a script can be easier than explaining what changes to make to the config between runs.
+        * Omit any unneeded complexity: remove variables, conditional statements, functions, modules, providers, and resources that are not needed to trigger the bug
+
+  - type: checkboxes
+    id: titi-area
+    attributes:
+      label: Issue Area
+      description: Area where the issue impacted. This is required to display issue in correct tab in GitHub Project.
+      options:
+        - area/titi-flutter
+        - area/titi-api
+        - area/titi-api-admin
+        - area/platform
+        - area/na
+    validations:
+      required: true
+
+  - type: textarea
+    id: titi-expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened?
+      placeholder: What should have happened?
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: titi-actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: What actually happened?
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: titi-repro-steps
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Please list the full steps required to reproduce the issue
+      placeholder: |
+        1. set X to configuration field Y
+        2. run rails by executing `make up` command
+      value:
+    validations:
+      required: false
+  - type: textarea
+    id: titi-add-context
+    attributes:
+      label: Additional Context
+      description: |
+        Are there anything atypical about your situation that we should know?
+      placeholder: Additional context...
+      value:
+    validations:
+      required: false
+  - type: textarea
+    id: titi-references
+    attributes:
+      label: References
+      description: |
+        Are there any other GitHub issues (open or closed) or Pull Requests that should be linked here? For example:
+        ```
+          - #6017
+        ```
+      placeholder:
+      value:
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        **Note:** If the submit button is disabled and you have filled out all required fields, please check that you did not forget a **Title** for the issue.
