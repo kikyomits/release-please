@@ -1,34 +1,26 @@
 name: Release
 
 on:
-  push:
-    branches: [ main, gha ]
-  workflow_dispatch:
-    inputs:
-      test:
-        type: string
-        default: "yes"
-        description: "test input"
-        required: false
+  issues:
+    types: [opened, labeled, edited]
 
 jobs:
-  release:
+  add-to-project:
+    name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v3
-        id: release
+      - uses: actions/add-to-project@v0.3.0
         with:
-          release-type: go
-
-      - name: "released"
-        if: ${{ steps.release.outputs.release_created }}
-        run: |
-        
-          echo "tag name: ${{ steps.release-please.outputs.tag_name }}"
-          echo "release created: ${{ steps.release-please.outputs.release_created }}"
-          echo "sha: ${{ steps.release-please.outputs.sha }}"
-
-      - name: Not Released
-        if: ${{ !steps.release.outputs.release_created }}
-        run: |
-          echo "sha: ${{ github.sha }}"
+          # currently all issues are added to same project
+          project-url: https://github.com/users/kikyomits/projects/1
+          github-token: ${{ secrets.MY_TOKEN }}
+#  label-check:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: github/issue-labeler@v2.5
+#        with:
+#          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+#          configuration-path: .github/labeler.yml
+#          enable-versioned-regex: 0
+##          versioned-regex: 'issue_labeler_regex_version=(\d+)'
+##          body-missing-regex-label: 'broken-template'

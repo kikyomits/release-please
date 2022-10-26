@@ -1,0 +1,14 @@
+"area/titi-api":
+  - '\[[xX]\]\s*titi-api'
+
+"area/titi-api-admin":
+  - '\[[xX]\]\s*titi-admin'
+
+"area/titi-flutter":
+  - '\[[xX]\]\s*titi-flutter'
+
+"area/platform":
+  - '\[[xX]\]\s*platform'
+
+"area/missing":
+  - '\[[xX]\]\s*na'

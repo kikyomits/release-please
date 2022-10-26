@@ -1,6 +1,7 @@
 name: Bug Report
 description: Let us know about an unexpected error, a crash, or an incorrect behavior.
 labels: ["kind/bug"]
+title: "[Bug]: "
 body:
   - type: markdown
     attributes:
@@ -21,11 +22,11 @@ body:
       label: Issue Area
       description: Area where the issue impacted. This is required to display issue in correct tab in GitHub Project.
       options:
-        - area/titi-flutter
-        - area/titi-api
-        - area/titi-api-admin
-        - area/platform
-        - area/na
+        - label: 'titi-flutter'
+        - label: 'titi-api'
+        - label: 'titi-api-admin'
+        - label: 'platform'
+        - label: 'na'
     validations:
       required: true
 
