@@ -24,7 +24,7 @@ jobs:
 
   release:
     name: Release Please
-    runs-on: [self-hosted, ubuntu]
+    runs-on: [ubuntu-latest]
     outputs:
       created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ env.IMAGE_TAG }}
