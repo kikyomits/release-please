@@ -38,10 +38,12 @@ jobs:
           echo "IMAGE_TAG=${version}" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Set Given Version
         if: ${{ inputs.image-tag != 'latest' }}
         run: |
           version=${{ inputs.image-tag }}
           echo "IMAGE_TAG=${version}" >> $GITHUB_ENV
+
       - name: Print Version
         run: echo "Deploying version ${{ env.IMAGE_TAG }} to ${{ inputs.environment }}"

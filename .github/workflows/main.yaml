@@ -1,26 +1,45 @@
 name: Release
 
 on:
-  issues:
-    types: [opened, labeled, edited]
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
 
 jobs:
-  add-to-project:
-    name: Add issue to project
-    runs-on: ubuntu-latest
+  doOnRelease:
+    runs-on: [ubuntu-latest]
+    if: ${{ github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, "chore(main)") }}
     steps:
-      - uses: actions/add-to-project@v0.3.0
+      - name: echo
+        run: echo "this is Release PR merged"
+
+  doOnMerge:
+    runs-on: [ubuntu-latest]
+    if: ${{ github.event.pull_request.merged == true && !startsWith(github.event.pull_request.title, "chore(main)") }}
+    steps:
+      - name: echo
+        run: echo "this is Normal PR merged"
+
+  release:
+    name: Release Please
+    runs-on: [self-hosted, ubuntu]
+    outputs:
+      created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ env.IMAGE_TAG }}
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        id: release
         with:
-          # currently all issues are added to same project
-          project-url: https://github.com/users/kikyomits/projects/1
-          github-token: ${{ secrets.MY_TOKEN }}
-#  label-check:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: github/issue-labeler@v2.5
-#        with:
-#          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-#          configuration-path: .github/labeler.yml
-#          enable-versioned-regex: 0
-##          versioned-regex: 'issue_labeler_regex_version=(\d+)'
-##          body-missing-regex-label: 'broken-template'
+          release-type: go
+      - name: Export Released Version for Image Tag
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          echo "IMAGE_TAG=${{ steps.release.outputs.tag_name }}" >> $GITHUB_ENV
+      - name: Export Commit SHA for Image Tag
+        if: ${{ !steps.release.outputs.releases_created }}
+        run: |
+          sha=$(echo "${{ github.sha }}" | cut -c1-7)
+          echo "IMAGE_TAG=$sha" >> $GITHUB_ENV
+
