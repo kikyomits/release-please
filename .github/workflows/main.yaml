@@ -42,4 +42,3 @@ jobs:
         run: |
           sha=$(echo "${{ github.sha }}" | cut -c1-7)
           echo "IMAGE_TAG=$sha" >> $GITHUB_ENV
-
