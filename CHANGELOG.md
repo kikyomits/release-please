@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.5](https://github.com/kikyomits/release-please/compare/v1.2.4...v1.2.5) (2024-01-06)
+
+
+### Bug Fixes
+
+* added issue template ([64559fb](https://github.com/kikyomits/release-please/commit/64559fbd911e6394edb9fd96068f84e8779c6d73))
+* check sha ([4c3aeba](https://github.com/kikyomits/release-please/commit/4c3aeba9bcc8c886d05be6b689dfed18b3935c3c))
+* ci ([775f236](https://github.com/kikyomits/release-please/commit/775f236cbff3fc5460ca1f5147ff18a120818e7a))
+* ci ([f59a23f](https://github.com/kikyomits/release-please/commit/f59a23fb91aff70894d5ca0a1d97bb715207a3b2))
+* ci ([6e82639](https://github.com/kikyomits/release-please/commit/6e8263995426981cd38409326b47917585174667))
+* ci ([1535790](https://github.com/kikyomits/release-please/commit/153579077f3ac83cd092ad0d74f6b763364eee3d))
+* rename step id ([189c90c](https://github.com/kikyomits/release-please/commit/189c90cf7e6d9c087d3339d2a8721dfcebfff109))
+* trigger release please from branch ([bf41afe](https://github.com/kikyomits/release-please/commit/bf41afed5a0705017a9d6f93bb2c146ee5a0b5c2))
+
 ## [1.2.1](https://github.com/kikyomits/release-please/compare/v1.2.0...v1.2.1) (2022-09-04)
 
 
