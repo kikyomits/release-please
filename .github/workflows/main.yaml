@@ -10,14 +10,14 @@ on:
 jobs:
   doOnRelease:
     runs-on: [ubuntu-latest]
-    if: ${{ github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, "chore(main)") }}
+    if: ${{ github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, 'chore(main)') }}
     steps:
       - name: echo
         run: echo "this is Release PR merged"
 
   doOnMerge:
     runs-on: [ubuntu-latest]
-    if: ${{ github.event.pull_request.merged == true && !startsWith(github.event.pull_request.title, "chore(main)") }}
+    if: ${{ github.event.pull_request.merged == true && !startsWith(github.event.pull_request.title, 'chore(main)') }}
     steps:
       - name: echo
         run: echo "this is Normal PR merged"
