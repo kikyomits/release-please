@@ -1,0 +1,37 @@
+name: Create Release
+
+permissions: write-all
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  poc:
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - run: |
+          echo ${{ github.event.base_ref }}"
+
+  check:
+    if: ${{ github.event.base_ref != 'release-please--branches--main' }}
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: "echo ${{ github.event.base_ref }}"
+
+  release:
+    if: always()
+    needs:
+      - check
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: fail if Check Job failed
+        if: ${{ needs.check.result == 'failure' }}
+        run: |
+          echo "check failed. Exit without executing release please step'
+          exit 1
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          release-type: ruby
