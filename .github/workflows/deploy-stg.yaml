@@ -5,11 +5,11 @@ permissions: write-all
 on:
   push:
     tags:
-      - *
+      - "*"
 
 jobs:
   poc:
     runs-on: [self-hosted, ubuntu]
     steps:
       - run: |
-          echo ${{ github.ref_name }}"
+          echo ${{ github.ref_name }}
