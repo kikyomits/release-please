@@ -9,7 +9,7 @@ on:
 
 jobs:
   poc:
-    runs-on: [self-hosted, ubuntu]
+    runs-on: [ubuntu-latest]
     steps:
       - run: |
           echo "${{ github.ref_name }}"
