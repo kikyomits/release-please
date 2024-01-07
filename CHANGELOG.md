@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.7](https://github.com/kikyomits/release-please/compare/v1.2.6...v1.2.7) (2024-01-07)
+
+
+### Bug Fixes
+
+* ci ([963c7c6](https://github.com/kikyomits/release-please/commit/963c7c62158900e057a30d3e4287b7bc26b904e3))
+
 ## [1.2.6](https://github.com/kikyomits/release-please/compare/v1.2.5...v1.2.6) (2024-01-07)
 
 
