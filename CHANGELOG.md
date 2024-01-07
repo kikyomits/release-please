@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.6](https://github.com/kikyomits/release-please/compare/v1.2.5...v1.2.6) (2024-01-07)
+
+
+### Bug Fixes
+
+* ci ([c3eab76](https://github.com/kikyomits/release-please/commit/c3eab7600a196993016b45390e99d90d77de6b37))
+* ci ([19e9d40](https://github.com/kikyomits/release-please/commit/19e9d40965607b723f69f4ad50617cf66a48f596))
+* ci ([603d0ca](https://github.com/kikyomits/release-please/commit/603d0cae161cf0c276ecb008937bf3aa849caca7))
+* ci ([019424b](https://github.com/kikyomits/release-please/commit/019424bbf3284f4adc1c6e293ccef3757e838cc9))
+* ci ([0fd5d16](https://github.com/kikyomits/release-please/commit/0fd5d169818917c1bfd9923997fc4112c17f6529))
+
 ## [1.2.5](https://github.com/kikyomits/release-please/compare/v1.2.4...v1.2.5) (2024-01-06)
 
 
