@@ -15,7 +15,7 @@ jobs:
           echo ${{ github.event.head_commit.message }}
 
   check:
-    if: ${{ contains(github.event.head_commit.message, 'release-please--branches--main') }}
+    if: ${{ !contains(github.event.head_commit.message, 'release-please--branches--main') }}
     runs-on: [ubuntu-latest]
     steps:
       - run: "echo ${{ github.event.head_commit.message }}"
